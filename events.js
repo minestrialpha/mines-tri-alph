@@ -46,14 +46,35 @@ const events = [
     }
 ];
 
+
 /*
     The code below displays the events automatically.
     You normally do not need to edit anything below this line.
 */
 
 
+function getSiteRoot() {
+    const eventsScript = document.querySelector(
+        'script[src$="events.js"]'
+    );
+
+    if (!eventsScript) {
+        return new URL("./", window.location.href);
+    }
+
+    return new URL("./", eventsScript.src);
+}
+
+
+function getSiteUrl(path) {
+    return new URL(path, getSiteRoot()).href;
+}
+
+
 function createLocalDate(dateString) {
-    const [year, month, day] = dateString.split("-").map(Number);
+    const [year, month, day] = dateString
+        .split("-")
+        .map(Number);
 
     return new Date(year, month - 1, day);
 }
@@ -128,10 +149,15 @@ function createRegistrationButton(event) {
         return "";
     }
 
+    const registrationUrl =
+        event.registrationLink === "open"
+            ? getSiteUrl("events/register.html")
+            : event.registrationLink;
+
     return `
         <a
             class="button event-register-button"
-            href="register.html"
+            href="${registrationUrl}"
         >
             Register for This Event
         </a>
@@ -153,6 +179,7 @@ function displayNextEventOnHomePage() {
     if (upcomingEvents.length === 0) {
         nextEventContainer.innerHTML = `
             <div class="no-events-message">
+
                 <h3>More events are coming soon</h3>
 
                 <p>
@@ -162,10 +189,11 @@ function displayNextEventOnHomePage() {
 
                 <a
                     class="text-link"
-                    href="contact.html#mailing-list"
+                    href="${getSiteUrl("contact/#mailing-list")}"
                 >
                     Join Our Mailing List →
                 </a>
+
             </div>
         `;
 
@@ -176,6 +204,7 @@ function displayNextEventOnHomePage() {
 
     nextEventContainer.innerHTML = `
         <div class="event-date">
+
             <span class="event-month">
                 ${formatShortMonth(nextEvent.date)}
             </span>
@@ -183,9 +212,12 @@ function displayNextEventOnHomePage() {
             <span class="event-day">
                 ${getDayNumber(nextEvent.date)}
             </span>
+
         </div>
 
+
         <div class="event-information">
+
             <p class="event-type">
                 ${nextEvent.type}
             </p>
@@ -199,17 +231,24 @@ function displayNextEventOnHomePage() {
                 ${nextEvent.location}
             </p>
 
-            <p>${nextEvent.shortDescription}</p>
+            <p>
+                ${nextEvent.shortDescription}
+            </p>
 
-        <div class="event-actions">
-    ${createRegistrationButton(nextEvent)}
 
-    <a
-        class="text-link"
-        href="events.html"
-    >
-        View All Events →
-    </a>
+            <div class="event-actions">
+
+                ${createRegistrationButton(nextEvent)}
+
+                <a
+                    class="text-link"
+                    href="${getSiteUrl("events/")}"
+                >
+                    View All Events →
+                </a>
+
+            </div>
+
         </div>
     `;
 }
@@ -222,7 +261,9 @@ function createEventCard(event, isPastEvent = false) {
 
     return `
         <article class="full-event-card">
+
             <div class="event-date">
+
                 <span class="event-month">
                     ${formatShortMonth(event.date)}
                 </span>
@@ -230,10 +271,15 @@ function createEventCard(event, isPastEvent = false) {
                 <span class="event-day">
                     ${getDayNumber(event.date)}
                 </span>
+
             </div>
 
+
             <div class="event-information">
-                <p class="event-type">${event.type}</p>
+
+                <p class="event-type">
+                    ${event.type}
+                </p>
 
                 <h3>${event.title}</h3>
 
@@ -244,16 +290,20 @@ function createEventCard(event, isPastEvent = false) {
                     ${event.location}
                 </p>
 
-                <p>${event.fullDescription}</p>
+                <p>
+                    ${event.fullDescription}
+                </p>
 
                 ${registrationButton}
+
             </div>
+
         </article>
     `;
 }
 
 
-function displayEventsPage() {
+function displayUpcomingEvents() {
     const upcomingEventsContainer = document.getElementById(
         "upcoming-events"
     );
@@ -267,23 +317,71 @@ function displayEventsPage() {
     if (upcomingEvents.length === 0) {
         upcomingEventsContainer.innerHTML = `
             <div class="no-events-message">
-                <h3>No upcoming events have been announced yet</h3>
+
+                <h3>
+                    No upcoming events have been announced yet
+                </h3>
 
                 <p>
                     Join our mailing list to receive the next
                     event announcement.
                 </p>
+
+                <a
+                    class="text-link"
+                    href="${getSiteUrl("contact/#mailing-list")}"
+                >
+                    Join Our Mailing List →
+                </a>
+
             </div>
         `;
-    } else {
-        upcomingEventsContainer.innerHTML = upcomingEvents
-            .map(event => createEventCard(event))
-            .join("");
+
+        return;
     }
+
+    upcomingEventsContainer.innerHTML = upcomingEvents
+        .map(event => createEventCard(event))
+        .join("");
+}
+
+
+function displayPastEvents() {
+    const pastEventsContainer = document.getElementById(
+        "past-events-container"
+    );
+
+    if (!pastEventsContainer) {
+        return;
+    }
+
+    const pastEvents = getPastEvents();
+
+    if (pastEvents.length === 0) {
+        pastEventsContainer.innerHTML = `
+            <div class="no-events-message">
+
+                <h3>No past events to display yet</h3>
+
+                <p>
+                    Event information will appear here after
+                    the event date has passed.
+                </p>
+
+            </div>
+        `;
+
+        return;
+    }
+
+    pastEventsContainer.innerHTML = pastEvents
+        .map(event => createEventCard(event, true))
+        .join("");
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
     displayNextEventOnHomePage();
-    displayEventsPage();
+    displayUpcomingEvents();
+    displayPastEvents();
 });
