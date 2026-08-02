@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Event Registration | Tri-Alpha at Colorado School of Mines
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="page-header">
+
+        <nav class="navbar">
+                <a class="logo" href="index.html">
+                    <img src="image/tri.alpha.logo.png" alt="Tri-Alpha logo">
+                    <span>Tri-Alpha at Mines</span>
+                </a>
+
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="events.html">Events</a>
+                <a href="team.html">Our Team</a>
+                <a href="contact.html">Get Involved</a>
+            </div>
+        </nav>
+
+        <div class="page-header-content">
+            <p class="eyebrow">Join us</p>
+
+            <h1>Event Registration</h1>
+
+            <p>
+                Register for Tri-Alpha’s next upcoming event.
+                Event details and updates will be sent to the
+                email address you provide.
+            </p>
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <section class="section registration-section">
+
+            <div class="registration-layout">
+
+                <div class="registration-introduction">
+                    <p class="section-label">
+                        Tri-Alpha at Mines
+                    </p>
+
+                    <h2>Reserve your spot</h2>
+
+                    <p>
+                        Complete the short form to register for our
+                        upcoming event. Registration is open to both
+                        Mines students and members of the broader
+                        community.
+                    </p>
+
+                    <a class="text-link" href="events.html">
+                        View All Events →
+                    </a>
+                </div>
+
+
+                <div class="registration-card">
+
+                    <form
+                        id="registration-form"
+                        action="https://script.google.com/macros/s/AKfycbwsz4zuGoZpN52n6sBPa2Xj4pjFf7kMMH8B-aJEMsSKnvl-QaUvIybJ68CQkv4FkpE4/exec"
+                        method="POST"
+                        target="registration-response"
+                    >
+
+                        <div class="form-field">
+                            <label for="full-name">
+                                Full Name
+                            </label>
+
+                            <input
+                                id="full-name"
+                                name="fullName"
+                                type="text"
+                                autocomplete="name"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-field">
+                            <label for="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                autocomplete="email"
+                                required
+                            >
+                        </div>
+
+
+                        <fieldset class="form-field">
+                            <legend>
+                                Are you currently a Colorado School
+                                of Mines student?
+                            </legend>
+
+                            <label class="radio-option">
+                                <input
+                                    type="radio"
+                                    name="minesStudent"
+                                    value="Yes"
+                                    required
+                                >
+
+                                <span>Yes</span>
+                            </label>
+
+                            <label class="radio-option">
+                                <input
+                                    type="radio"
+                                    name="minesStudent"
+                                    value="No"
+                                    required
+                                >
+
+                                <span>No</span>
+                            </label>
+                        </fieldset>
+
+
+                        <label class="checkbox-option">
+                            <input
+                                type="checkbox"
+                                name="mailingList"
+                                value="Yes"
+                            >
+
+                            <span>
+                                I would like to receive occasional emails
+                                about future Tri-Alpha events and
+                                opportunities. I understand that I may
+                                unsubscribe at any time.
+                            </span>
+                        </label>
+
+
+                        <button
+                            class="button registration-submit-button"
+                            type="submit"
+                        >
+                            Register for This Event
+                        </button>
+
+
+                        <p class="form-privacy-note">
+                            We will only use your information for event
+                            communication and, if selected above, future
+                            Tri-Alpha announcements.
+                        </p>
+
+                    </form>
+
+
+                    <div
+                        class="registration-success"
+                        id="registration-success"
+                        hidden
+                    >
+                        <div class="success-icon">✓</div>
+
+                        <h2>You’re registered!</h2>
+
+                        <p>
+                            Thank you for registering. Event details and
+                            any important updates will be sent to the
+                            email address you provided.
+                        </p>
+
+                        <a class="button primary-button" href="events.html">
+                            View All Events
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <iframe
+        name="registration-response"
+        id="registration-response"
+        title="Registration response"
+        hidden
+    ></iframe>
+
+
+    <footer>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="events.html">Events</a>
+            <a href="team.html">Our Team</a>
+            <a href="contact.html">Get Involved</a>
+
+            <a
+                href="https://www.instagram.com/minestrialpha/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Instagram ↗
+            </a>
+
+            <a
+                href="https://groupme.com/join_group/110721965/QVAlwVsL"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Join Our GroupMe ↗
+            </a>
+        </div>
+
+        
+
+        <p class="copyright">
+            © 2026 Tri-Alpha at Colorado School of Mines
+        </p>
+    </footer>
+
+
+    <script src="registration.js"></script>
+
+</body>
+
+</html>
