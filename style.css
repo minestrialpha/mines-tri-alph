@@ -2260,3 +2260,108 @@ footer {
 .partner-contact-details .contact-email {
     color: #8fd3f4 !important;
 }
+
+
+.team-name-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.team-name-link:hover {
+    color: #c69214;
+    text-decoration: underline;
+}
+
+.team-major {
+    margin: 0.45rem 0 1.25rem;
+    color: #5f6872;
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.35;
+}
+
+.founding-president-card {
+    border: 2px solid #c69214;
+}
+
+.previous-officers-section {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid #d9dee5;
+}
+
+.previous-officers-section > h2 {
+    margin: 0.5rem 0 2rem;
+    color: #172235;
+    font-size: 2rem;
+}
+
+.previous-officers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+@media (max-width: 900px) {
+    .previous-officers-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .previous-officers-section {
+        margin-top: 3rem;
+        padding-top: 2rem;
+    }
+
+    .previous-officers-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.sponsors-section {
+    padding: 0;
+    background: #f5f7fa;
+}
+
+.sponsors-section > .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.sponsors-heading {
+    max-width: 900px;
+    margin-bottom: 2rem;
+}
+
+.sponsors-heading h2 {
+    margin: 0.65rem 0 1rem;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.1;
+}
+
+.sponsors-heading > p:last-child {
+    max-width: 850px;
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+    .sponsors-section > .section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .sponsors-heading h2 {
+        font-size: 2.25rem;
+    }
+
+    .sponsors-heading > p:last-child {
+        font-size: 1.1rem;
+    }
+
+    .sponsors-grid {
+        grid-template-columns: 1fr;
+    }
+}
