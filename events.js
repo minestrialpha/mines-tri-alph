@@ -9,22 +9,27 @@
 
     If registration is not required, use:
     registrationLink: ""
+
+    If an event does not have an image, use:
+    image: ""
 */
 
 
 const events = [
     {
         title: "Fall Kickoff",
-        date: "2026-08-26",
-        time: "Time TBD",
-        location: "Room TBD",
+        date: "2026-09-02",
+        time: "4:00 PM",
+        location: "East Classroom Building 320",
         type: "Tri-Alpha Community Event",
 
         shortDescription:
             "Meet our new officer team, reconnect with the Tri-Alpha community, and hear what we have planned for the fall semester.",
 
         fullDescription:
-            "Join us for Tri-Alpha’s Fall Kickoff! Meet our new officer team, connect with other first-generation students, and learn about the events and opportunities planned for the semester. We will also discuss the upcoming Career Days and ways Tri-Alpha can help you prepare.",
+            "Join us for Tri-Alpha’s Fall Kickoff! Meet our new officer team, connect with other students, and learn about the events and opportunities planned for the semester. Food will be provided!",
+
+        image: "image/FallKickOff.png",
 
         registrationLink: "open"
     },
@@ -41,6 +46,8 @@ const events = [
 
         fullDescription:
             "Join Tri-Alpha for a relaxed study social where you can work alongside other first-generation students, meet new people, and take a break from studying on your own. September 22 is a tentative date, so stay tuned for confirmed details.",
+
+        image: "",
 
         registrationLink: ""
     }
@@ -151,7 +158,7 @@ function createRegistrationButton(event) {
 
     const registrationUrl =
         event.registrationLink === "open"
-            ? getSiteUrl("events/register.html")
+            ? getSiteUrl("events/register/")
             : event.registrationLink;
 
     return `
@@ -160,6 +167,32 @@ function createRegistrationButton(event) {
             href="${registrationUrl}"
         >
             Register for This Event
+        </a>
+    `;
+}
+
+
+function createEventImage(event) {
+    if (!event.image) {
+        return "";
+    }
+
+    const imageUrl = getSiteUrl(event.image);
+
+    return `
+        <a
+            class="event-image-link"
+            href="${imageUrl}"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open ${event.title} poster"
+        >
+            <img
+                class="event-image-thumbnail"
+                src="${imageUrl}"
+                alt="${event.title} event poster"
+                loading="lazy"
+            >
         </a>
     `;
 }
@@ -224,6 +257,8 @@ function displayNextEventOnHomePage() {
 
             <h3>${nextEvent.title}</h3>
 
+            ${createEventImage(nextEvent)}
+
             <p class="event-details">
                 ${formatFullDate(nextEvent.date)}
                 · ${nextEvent.time}
@@ -282,6 +317,8 @@ function createEventCard(event, isPastEvent = false) {
                 </p>
 
                 <h3>${event.title}</h3>
+
+                ${createEventImage(event)}
 
                 <p class="event-details">
                     ${formatFullDate(event.date)}
