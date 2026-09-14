@@ -17,19 +17,19 @@
 
 const events = [
     {
-        title: "Fall Kickoff",
-        date: "2026-09-02",
-        time: "4:00 PM",
-        location: "East Classroom Building 320",
-        type: "Tri-Alpha Community Event",
+        title: "Social Study",
+        date: "2026-09-22",
+        time: "4-6 PM",
+        location: "EB 240",
+        type: "Tri-Alpha Social & Tutoring Event",
 
         shortDescription:
-            "Meet our new officer team, reconnect with the Tri-Alpha community, and hear what we have planned for the fall semester.",
+            "Bring your homework, study with other students, and get help from current and former TAs. All Mines students are welcome!",
 
         fullDescription:
-            "Join us for Tri-Alpha’s Fall Kickoff! Meet our new officer team, connect with other students, and learn about the events and opportunities planned for the semester. Food will be provided!",
+            "Join Tri-Alpha for a relaxed study session with peer tutoring from current and former TAs. Help will be available for ME 261, 315, 324, 441, and 471; CSCI 128, 200, 210, 220, 306, and 406; EBGN 321; Calculus I–III; Differential Equations; Linear Algebra; Probability; and more. All Mines students are welcome!",
 
-        image: "image/FallKickOff.png",
+        image: "image/SocialStudySep22.png",
 
         registrationLink: "open"
     },
