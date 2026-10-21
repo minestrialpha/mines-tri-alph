@@ -17,40 +17,28 @@
 
 const events = [
     {
+
         title: "Social Study",
-        date: "2026-09-22",
-        time: "4-6 PM",
-        location: "EB 240",
+        date: "2026-10-26",
+        time: "4-5 PM",
+        location: "EB 210",
         type: "Tri-Alpha Social & Tutoring Event",
 
         shortDescription:
-            "Bring your homework, study with other students, and get help from current and former TAs. All Mines students are welcome!",
+            "Join Tri-Alpha and the Mines Counseling Center for a workshop with counselor Autumn Washington on recognizing imposter syndrome and building confidence and professional resilience. Thursday, October 29, 4–5 p.m. in East Classroom Building, Room 210. Snacks provided. All Mines students are welcome!",
 
-        fullDescription:
-            "Join Tri-Alpha for a relaxed study session with peer tutoring from current and former TAs. Help will be available for ME 261, 315, 324, 441, and 471; CSCI 128, 200, 210, 220, 306, and 406; EBGN 321; Calculus I–III; Differential Equations; Linear Algebra; Probability; and more. All Mines students are welcome!",
+        fullDescription: `Tri-Alpha Honor Society and the Mines Counseling Center invite you to “How to Deal with Imposter Syndrome,” a workshop led by Mines counselor Autumn Washington.
 
-        image: "image/SocialStudySep22.png",
+                        Learn ways to recognize and reframe self-doubt and internal criticism, and explore practical strategies for building self-confidence and professional resilience.
+
+                        The workshop will take place Thursday, October 29, from 4–5 p.m. in East Classroom Building, Room 210. Snacks will be provided. All Mines students are welcome!`,
+
+        image: "image/impsynevent.png",
 
         registrationLink: "open"
+
     },
 
-    {
-        title: "Study Social",
-        date: "2026-09-22",
-        time: "Time TBD",
-        location: "Location TBD",
-        type: "Tri-Alpha Social Event",
-
-        shortDescription:
-            "Take a break, meet other first-generation students, and get some studying done in a relaxed environment. Tentative date — stay tuned!",
-
-        fullDescription:
-            "Join Tri-Alpha for a relaxed study social where you can work alongside other first-generation students, meet new people, and take a break from studying on your own. September 22 is a tentative date, so stay tuned for confirmed details.",
-
-        image: "",
-
-        registrationLink: ""
-    }
 ];
 
 
