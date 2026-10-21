@@ -18,11 +18,11 @@
 const events = [
     {
 
-        title: "Social Study",
-        date: "2026-10-26",
-        time: "4-5 PM",
-        location: "EB 210",
-        type: "Tri-Alpha Social & Tutoring Event",
+        title: "How to Deal with Imposter Syndrome",
+        date: "2026-10-29",
+        time: "4–5 PM",
+        location: "East Classroom Building, Room 210",
+        type: "Tri-Alpha & Mines Counseling Center Workshop",
 
         shortDescription:
             "Join Tri-Alpha and the Mines Counseling Center for a workshop with counselor Autumn Washington on recognizing imposter syndrome and building confidence and professional resilience. Thursday, October 29, 4–5 p.m. in East Classroom Building, Room 210. Snacks provided. All Mines students are welcome!",
